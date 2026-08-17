@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;600&family=Kanit:wght@400;700&family=Mitr:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>My Portfolio</title>
+</head>
+<body style="font-family: 'Kanit', sans-serif;" class="bg-gray-100">
+
+    <nav class="sticky top-0 z-50 flex justify-between items-center px-12 py-6 bg-[#f3f3f3]">
+        <div id="logo-btn" class="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
+            <img src="assets/images/logo.png" alt="Logo" class="w-10 h-10 object-contain">
+            <span class="text-xl font-medium text-[#4a3e3d]">My Portfolio</span>
+        </div>
+        <div class="flex items-center gap-8 text-[#4a3e3d] font-medium">
+            <a href="index.html" class="hover:text-pink-400 transition-colors">Home</a>
+            <a href="#about" class="hover:text-pink-400 transition-colors">About me</a>
+            <a href="#resume" class="hover:text-pink-400 transition-colors">Resume</a>
+                <button id="btn-open-portfolio-modal" onclick="openModal()" type="button" >
+                     Create New Portfolio
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div id="side-menu" class="hidden fixed left-6 top-28 z-40 w-60 bg-[#211311] text-[#fbcfe8] p-6 rounded-3xl shadow-xl border-2 border-[#4a3e3d]">
+        <div class="text-center font-bold text-lg mb-6 tracking-wide border-b border-dashed border-pink-300/30 pb-2">
+            My Portfolio
+        </div>
+        <ul class="space-y-4 font-medium">
+            <li id="btn-go-dashboard" class="flex items-center justify-between hover:text-white cursor-pointer transition-colors group">
+                <span class="flex items-center gap-2">📊 Dashboard</span>
+                <span class="text-xs text-pink-300/40 group-hover:text-white">....................</span>
+            </li>
+            <li id="btn-open-create" class="flex items-center justify-between hover:text-white cursor-pointer transition-colors group">
+                <span class="flex items-center gap-2">📝 Create</span>
+                <span class="text-xs text-pink-300/40 group-hover:text-white">....................</span>
+            </li>
+            <li id="btn-export-pdf" class="flex items-center justify-between hover:text-white cursor-pointer transition-colors group">
+                <span class="flex items-center gap-2">📄 PDF</span>
+                <span class="text-xs text-pink-300/40 group-hover:text-white">....................</span>
+            </li>
+            <li id="btn-open-resume" class="flex items-center justify-between hover:text-white cursor-pointer transition-colors group">
+                <span class="flex items-center gap-2">👤 Edit Resume</span>
+                <span class="text-xs text-pink-300/40 group-hover:text-white">....................</span>
+            </li>
+        </ul>
+    </div>
+    <div id="main-site-page" class="transition-all duration-300">
+        <div class="ml-55 mr-10">
+            <div class="bg-[url('/assets/images/portfolio.png')] bg-contain bg-center bg-no-repeat w-full h-screen"></div>
+        </div>
+        <div class="container mx-auto px-4 py-8">
+            <div class="resume-preview-zone mb-12">
+            </div>
+            <div class="mt-12">
+                <h2 class="text-2xl font-black text-black mb-6"> My Creation Portfolio</h2>
+                <div id="portfolio-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                </div>
+            </div>
+        </div>
+        <section id="about" class="min-h-screen py-20 px-12 bg-black flex items-center justify-center">
+            <div class="flex items-center justify-between w-full mx-auto">
+                <div class="text-orange-200">
+                    <h2 class="text-4xl font-bold mb-3 ">Hello, I'm</h2>
+                    <h2 id="view-name" class="text-5xl font-bold mb-8 text-pink-400">Chananya!!</h2>
+                    <p id="view-bio" class="text-lg opacity-90 max-w-md">ใส่ข้อความแนะนำตัวเองตัวอย่างตรงนี้... คุณสามารถพิมพ์อธิบายประวัติหรือสไตล์งานของคุณยาว ๆ ตรงนี้ได้เลยครับ</p>
+                </div>
+                <div class="w-49 h-49 flex-shrink-0">
+                    <img id="hero-profile-img" src="assets/images/p1.jpg" alt="My Image" class="w-full h-full object-contain">
+                </div>
+            </div>
+        </section>
+   <section class="min-h-screen py-10 bg-[#f3f3f3] flex justify-center items-center overflow-x-auto">
+    <div id="resume" class="w-[210mm] h-[297mm] bg-[#fdfdfd] border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden flex flex-col box-border shrink-0">
+        
+        <div class="flex border-b-2 border-black shrink-0">
+            <div class="w-1/3 p-6 border-r-2 border-black bg-white flex justify-center items-center">
+                <div class="w-full h-64 border-2 border-black rounded-t-full bg-[#d0d7be] relative overflow-hidden flex items-end justify-center">
+                    <img id="resume-profile-img" src="assets/images/p1.jpg" alt="Profile" class="w-full h-full object-cover object-center">
+                </div>
+            </div>
+            <div class="w-2/3 p-8 bg-[#dbdad5] flex flex-col justify-between relative">
+                <div class="text-right">
+                    <img src="assets/images/resume.png" alt="Profile" class="w-full h-full object-contain">
+                </div>
+                <div class="text-xs text-gray-500 font-mono leading-relaxed max-w-md mt-6">
+                    กลาสดสกหวาดกสาดหวาดสวาดกวาดสกลาสกาวสดสเดโม<br>
+                    ทตมไทเดมใหมโดกเทไมกทไมดกกดกดดดว้าโดกกดด<br>
+                    ทไมดกไมดทไมดทเบดทเมดเทดเมดมใหใใใใใใใใใใใใใใใโดม
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-1 min-h-0">
+            <div class="w-1/3 border-r-2 border-black p-6 space-y-8 bg-white">
+                <div>
+                    <span class="border border-black rounded-full px-6 py-1 text-sm font-bold inline-block mb-4 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">ข้อมูลส่วนตัว</span>
+                    <ul class="text-xs space-y-2 font-mono text-gray-700">
+                        <li class="flex justify-between"><span>วันเกิด</span> <span class="text-gray-500" id="view-birth">09 / 09 / 2000</span></li>
+                        <li class="flex justify-between"><span>อายุ</span> <span class="text-gray-500" id="view-age">24 ปี</span></li>
+                        <li class="flex justify-between"><span>สัญชาติ</span> <span class="text-gray-500" id="view-nation">ไทย</span></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <span class="border border-black rounded-full px-6 py-1 text-sm font-bold inline-block mb-4 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">ข้อมูลติดต่อ</span>
+                    <ul class="text-xs space-y-3 font-mono text-gray-700">
+                        <li class="flex items-center gap-2">📞 <span class="text-gray-500" id="view-phone">+123-456-7890</span></li>
+                        <li class="flex items-center gap-2">✉️ <span class="text-gray-500 text-[10px]" id="view-email">hello@reallygreatsite.com</span></li>
+                        <li class="flex items-center gap-2">🏠 <span class="text-gray-500" id="view-address">123 Anywhere St., Any City</span></li>
+                    </ul>
+                </div>
+                
+                <div class="bg-[#dbdad5] p-4 border border-black rounded-xl">
+                    <span class="border border-black bg-white rounded-full px-4 py-0.5 text-xs font-bold inline-block mb-4">ประวัติการศึกษา</span>
+                    <div id="view-edu-container" class="space-y-4"></div>
+                </div>
+            </div>
+
+            <div class="w-2/3 p-6 space-y-8 bg-white">
+                <div>
+                    <h3 class="text-sm font-bold border-b border-black pb-1 mb-4">ประวัติการทำงาน</h3>
+                    <div id="view-work-container" class="space-y-4"></div>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-bold border-b border-black pb-1 mb-4">ประวัติฝึกงาน</h3>
+                    <div id="view-train-container" class="space-y-4"></div>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-bold border-b border-black pb-1 mb-4">ทักษะความสามารถ (Skills)</h3>
+                    <div id="view-skills-container" class="whitespace-pre-line"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+    </div>
+
+    <div id="dashboard-page" class="hidden ml-60 mr-10 py-20 px-12 min-h-screen transition-all duration-300">
+        <h1 class="text-4xl font-bold text-gray-800 mb-8 border-b-4 border-black pb-4">📊 Portfolio Dashboard</h1>
+        
+        <div class="bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] rounded-3xl p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl font-bold">จัดการรายการ Portfolio ทั้งหมด</h2>
+            </div>
+
+            <div id="dashboard-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                </div>
+        </div>
+    </div>
+
+    <div id="crud-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
+        <div class="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rounded-3xl w-full max-w-lg p-6 relative">
+            <button onclick="closeModal()" type="button" class="absolute top-4 right-4 text-gray-500 hover:text-black font-bold text-xl">✕</button>
+            <h3 id="modal-title" class="text-xl font-bold text-gray-800 mb-4 border-b-2 border-black pb-2">📝 Create New Portfolio</h3>
+            
+            <form id="crud-form" class="space-y-4">
+                <div>
+                    <label class="block text-lg font-bold text-gray-700 mb-1">ชื่อPortfolio</label>
+                    <input type="text" id="proj-title" required placeholder="Enter project name..." 
+                           class="w-full border-2 border-black rounded-xl p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-pink-300">
+                </div>
+                <div>
+                    <label class="block text-lg font-bold text-gray-700 mb-1">รายละเอียดเกี่ยวกับPortfolio</label>
+                    <textarea id="proj-desc" rows="3" placeholder="Project Description..." 
+                              class="w-full border-2 border-black rounded-xl p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-pink-300"></textarea>
+                </div>
+                <div>
+                    <label class="block text-lg font-bold text-gray-700 mb-1">🖼️ อัปโหลดรูปภาพผลงาน</label>
+                    <div class="flex items-center gap-4">
+                        <input type="file" id="proj-image-file" accept="image/*" class="hidden">
+                        <button type="button" onclick="document.getElementById('proj-image-file').click()" 
+                                class="bg-orange-200 hover:bg-orange-300 border-2 border-black font-bold py-2 px-4 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-xs transition-all">
+                            📁 เลือกไฟล์รูปภาพ
+                        </button>
+                        <span id="file-name-text" class="text-xs text-gray-500 truncate max-w-[200px]">ยังไม่ได้เลือกไฟล์</span>
+                    </div>
+                    <input type="hidden" id="proj-image-base64" value="assets/images/portfolio.png">
+                </div>
+
+                <div class="flex justify-end gap-3 pt-2">
+                    <button onclick="closeModal()" type="button" class="bg-gray-200 hover:bg-gray-300 border-2 border-black font-bold py-2 px-4 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-sm">
+                        Cancel
+                    </button>
+                    <button type="submit" class="bg-pink-400 hover:bg-pink-500 text-white border-2 border-black font-bold py-2 px-6 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-sm">
+                        Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="resume-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
+    <div class="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rounded-3xl w-full max-w-2xl p-6 relative max-h-[90vh] overflow-y-auto text-left text-black">
+        
+        <button onclick="closeResumeModal()" type="button" class="absolute top-4 right-4 text-gray-500 hover:text-black font-bold text-xl">✕</button>
+        <h3 class="text-2xl font-black mb-4 border-b-4 border-black pb-2 text-pink-500">✨ Edit Full Resume</h3>
+        
+        <form id="resume-form" class="space-y-4">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 bg-gray-50 border-2 border-black p-3 rounded-xl">
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">ชื่อ-นามสกุล</label>
+                    <input type="text" id="input-resume-name" class="w-full border-2 border-black rounded-lg p-2 text-xs">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">แนะนำตัวเองสั้น ๆ</label>
+                    <input type="text" id="input-resume-bio" class="w-full border-2 border-black rounded-lg p-2 text-xs">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">วันเกิด / อายุ / สัญชาติ</label>
+                    <div class="flex gap-1">
+                        <input type="text" id="input-resume-birth" placeholder="วันเกิด" class="w-full border-2 border-black rounded-lg p-1.5 text-xs">
+                        <input type="text" id="input-resume-age" placeholder="อายุ" class="w-full border-2 border-black rounded-lg p-1.5 text-xs">
+                        <input type="text" id="input-resume-nation" placeholder="สัญชาติ" class="w-full border-2 border-black rounded-lg p-1.5 text-xs">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">ติดต่อ (เบอร์ / อีเมล / ที่อยู่)</label>
+                    <div class="flex gap-1">
+                        <input type="text" id="input-resume-phone" placeholder="เบอร์" class="w-full border-2 border-black rounded-lg p-1.5 text-xs">
+                        <input type="text" id="input-resume-email" placeholder="อีเมล" class="w-full border-2 border-black rounded-lg p-1.5 text-xs">
+                        <input type="text" id="input-resume-address" placeholder="ที่อยู่" class="w-full border-2 border-black rounded-lg p-1.5 text-xs">
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-blue-50 border-2 border-black p-3 rounded-xl space-y-2">
+                <div class="flex justify-between items-center border-b border-black pb-1">
+                    <h4 class="font-bold text-xs text-blue-700">🎓 ประวัติการศึกษา</h4>
+                    <button type="button" onclick="addEduRow()" class="bg-blue-500 hover:bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded border border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">+ เพิ่มประวัติการศึกษา</button>
+                </div>
+                <div id="modal-edu-container" class="space-y-3 max-h-48 overflow-y-auto p-1"></div>
+            </div>
+            <div class="bg-orange-50 border-2 border-black p-3 rounded-xl space-y-2">
+                <div class="flex justify-between items-center border-b border-black pb-1">
+                    <h4 class="font-bold text-xs text-orange-700">💼 ประวัติการทำงาน</h4>
+                    <button type="button" onclick="addWorkRow()" class="bg-orange-500 hover:bg-orange-600 text-white text-[10px] font-bold px-2 py-1 rounded border border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">+ เพิ่มประวัติการทำงาน</button>
+                </div>
+                <div id="modal-work-container" class="space-y-3 max-h-48 overflow-y-auto p-1"></div>
+            </div>
+            <div class="bg-orange-50 border-2 border-black p-3 rounded-xl space-y-2">
+                <div class="flex justify-between items-center border-b border-black pb-1">
+                    <h4 class="font-bold text-xs text-orange-700">💼 ประวัติฝึกงาน</h4>
+                    <button type="button" onclick="addWorkRow()" class="bg-orange-500 hover:bg-orange-600 text-white text-[10px] font-bold px-2 py-1 rounded border border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">+ เพิ่มประวัติการฝึกงาน</button>
+                </div>
+                <div id="modal-train-container" class="space-y-3 max-h-48 overflow-y-auto p-1"></div>
+            </div>
+            <div class="bg-pink-50 border-2 border-black p-3 rounded-xl">
+                <h4 class="font-bold text-xs text-pink-700 mb-1">⚡ Skills (พิมพ์แยกบรรทัดละ 1 ทักษะ)</h4>
+                <textarea id="input-resume-skills" rows="3" placeholder="Digital art&#10;Creative multimedia" class="w-full border-2 border-black rounded-lg p-2 text-xs focus:outline-none"></textarea>
+            </div>
+
+            <div class="flex justify-end gap-2 pt-2">
+                <button onclick="closeResumeModal()" type="button" class="bg-gray-200 border-2 border-black font-bold py-1.5 px-4 rounded-xl text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">Cancel</button>
+                <button type="submit" class="bg-pink-400 text-white border-2 border-black font-bold py-1.5 px-5 rounded-xl text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">💾 Save Full Resume</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="pdf-preview-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 overflow-y-auto">
+    <div class="bg-[#f3f3f3] border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rounded-3xl max-w-4xl w-full max-h-[95vh] flex flex-col p-6 relative">
+        
+        <button onclick="closePreviewModal()" type="button" class="absolute top-4 right-4 text-gray-500 hover:text-black font-bold text-xl">✕</button>
+        
+        <h3 class="text-xl font-black text-black mb-4 border-b-2 border-black pb-2">👁️ Preview เรซูเม่ของคุณก่อนดาวน์โหลด</h3>
+
+        <div class="flex-1 overflow-y-auto p-4 bg-gray-400 rounded-2xl flex justify-center">
+            <div id="pdf-preview-area" class="w-full max-w-[210mm] bg-white shadow-2xl origin-top transition-transform">
+                </div>
+        </div>
+
+        <div class="flex justify-end gap-3 pt-4 border-t-2 border-black mt-4">
+            <button onclick="closePreviewModal()" type="button" class="bg-gray-200 hover:bg-gray-300 border-2 border-black font-bold py-2 px-4 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-sm">
+                ย้อนกลับไปแก้ไข
+            </button>
+            <button id="btn-confirm-download" type="button" class="bg-pink-400 hover:bg-pink-500 text-white border-2 border-black font-bold py-2 px-6 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-sm">
+                💾 ดาวน์โหลดไฟล์ PDF จริง
+            </button>
+        </div>
+    </div>
+</div>
+
+    <script src="js/crud.js"></script>
+    <script src="js/pdf-export.js"></script>
+    <script>
+        // สคริปต์เดิมของคุณ: คลิกโลโก้เพื่อเปิด-ปิดเมนูด้านข้าง
+        const logoBtn = document.getElementById('logo-btn');   
+        const sideMenu = document.getElementById('side-menu'); 
+
+        logoBtn.addEventListener('click', () => {
+            sideMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
